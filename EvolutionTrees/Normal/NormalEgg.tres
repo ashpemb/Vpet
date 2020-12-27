@@ -1,0 +1,21 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://EvolutionTreeNode.gd" type="Script" id=1]
+[ext_resource path="res://NormalLine.png" type="Texture" id=2]
+[ext_resource path="res://EvolutionTrees/Normal/NormalBaby.tres" type="Resource" id=3]
+[ext_resource path="res://EvolutionTreeChildNode.gd" type="Script" id=4]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 4 )
+childNode = ExtResource( 3 )
+threshold = 0.0
+
+[resource]
+script = ExtResource( 1 )
+name = "Normal Egg"
+stage = 0
+sprites = ExtResource( 2 )
+lifetimeInHours = 1
+lifetimeInMinutes = 0
+lifetimeInSeconds = 0
+childNodes = [ SubResource( 1 ) ]

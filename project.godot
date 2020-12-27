@@ -1,0 +1,50 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Reference",
+"class": "EvolutionStages",
+"language": "GDScript",
+"path": "res://EvolutionStages.gd"
+}, {
+"base": "Resource",
+"class": "EvolutionTreeChildNode",
+"language": "GDScript",
+"path": "res://EvolutionTreeChildNode.gd"
+}, {
+"base": "Resource",
+"class": "EvolutionTreeNode",
+"language": "GDScript",
+"path": "res://EvolutionTreeNode.gd"
+} ]
+_global_script_class_icons={
+"EvolutionStages": "",
+"EvolutionTreeChildNode": "",
+"EvolutionTreeNode": ""
+}
+
+[application]
+
+config/name="Vpet"
+run/main_scene="res://Main.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=128
+window/size/height=72
+window/size/test_width=1280
+window/size/test_height=720
+window/stretch/mode="2d"
+
+[rendering]
+
+environment/default_clear_color=Color( 0.658824, 0.705882, 0.12549, 1 )
+environment/default_environment="res://default_env.tres"

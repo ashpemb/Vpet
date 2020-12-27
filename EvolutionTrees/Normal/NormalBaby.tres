@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://EvolutionTreeNode.gd" type="Script" id=1]
+[ext_resource path="res://NormalLine.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+name = "Normal Baby"
+stage = 1
+sprites = ExtResource( 3 )
+lifetimeInHours = 3
+lifetimeInMinutes = 0
+lifetimeInSeconds = 0
+childNodes = [  ]
