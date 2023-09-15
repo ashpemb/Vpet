@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EvolutionTreeNode" load_steps=3 format=3 uid="uid://dwfvbf8vu63uq"]
+
+[ext_resource type="Script" path="res://EvolutionTreeNode.gd" id="1_mpg40"]
+[ext_resource type="SpriteFrames" uid="uid://bq5wp27aqc1ph" path="res://Sprites/Normal/SpriteFramesNormalChild.tres" id="2_krily"]
+
+[resource]
+script = ExtResource("1_mpg40")
+name = "Normal Child"
+stage = 2
+sprite = ExtResource("2_krily")
+lifetimeInHours = 3
+lifetimeInMinutes = 0
+lifetimeInSeconds = 0
+childNodes = []

@@ -1,9 +1,9 @@
 extends Node2D
 
-onready var PetNode = $Pet
-onready var SaveSys = $SaveSystem
+@onready var PetNode = $Pet
+@onready var SaveSys = $SaveSystem
 
-export(bool) var DebugEnabled = false;
+@export var DebugEnabled: bool = false;
 
 func _process(delta):
 	if DebugEnabled == false:
@@ -14,3 +14,9 @@ func _process(delta):
 		
 	if Input.is_action_just_pressed("ui_accept"):
 		SaveSys.save_game()
+		
+	if Input.is_action_just_pressed("ui_cancel"):
+		SaveSys.load_game()
+		
+	if Input.is_action_just_pressed("ui_text_delete"):
+		SaveSys.delete_save()

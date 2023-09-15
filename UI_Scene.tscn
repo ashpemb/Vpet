@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc7v8ta7201eq"]
+
+[ext_resource type="Script" path="res://Clock.gd" id="1_mobms"]
+
+[node name="UI_Scene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_left = 84.0
+offset_right = 128.0
+offset_bottom = 16.0
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BoxContainer"]
+texture_filter = 1
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+scroll_active = false
+script = ExtResource("1_mobms")

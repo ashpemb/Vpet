@@ -6,45 +6,36 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
-
-_global_script_classes=[ {
-"base": "Reference",
-"class": "EvolutionStages",
-"language": "GDScript",
-"path": "res://EvolutionStages.gd"
-}, {
-"base": "Resource",
-"class": "EvolutionTreeChildNode",
-"language": "GDScript",
-"path": "res://EvolutionTreeChildNode.gd"
-}, {
-"base": "Resource",
-"class": "EvolutionTreeNode",
-"language": "GDScript",
-"path": "res://EvolutionTreeNode.gd"
-} ]
-_global_script_class_icons={
-"EvolutionStages": "",
-"EvolutionTreeChildNode": "",
-"EvolutionTreeNode": ""
-}
+config_version=5
 
 [application]
 
 config/name="Vpet"
 run/main_scene="res://Main.tscn"
+config/features=PackedStringArray("4.1")
 config/icon="res://icon.png"
 
 [display]
 
-window/size/width=128
-window/size/height=72
-window/size/test_width=1280
-window/size/test_height=720
-window/stretch/mode="2d"
+window/size/viewport_width=128
+window/size/viewport_height=72
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="viewport"
+
+[dotnet]
+
+project/assembly_name="Vpet"
+
+[input]
+
+ui_1={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":49,"physical_keycode":0,"key_label":0,"unicode":49,"echo":false,"script":null)
+]
+}
 
 [rendering]
 
-environment/default_clear_color=Color( 0.658824, 0.705882, 0.12549, 1 )
-environment/default_environment="res://default_env.tres"
+environment/defaults/default_clear_color=Color(0.658824, 0.705882, 0.12549, 1)
+environment/defaults/default_environment="res://default_env.tres"

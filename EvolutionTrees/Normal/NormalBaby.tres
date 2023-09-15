@@ -1,14 +1,21 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" script_class="EvolutionTreeNode" load_steps=6 format=3 uid="uid://cdqd4derhsqme"]
 
-[ext_resource path="res://EvolutionTreeNode.gd" type="Script" id=1]
-[ext_resource path="res://NormalLine.png" type="Texture" id=3]
+[ext_resource type="Script" path="res://EvolutionTreeNode.gd" id="1"]
+[ext_resource type="Resource" uid="uid://dwfvbf8vu63uq" path="res://EvolutionTrees/Normal/NormalChild.tres" id="1_qc3b1"]
+[ext_resource type="Script" path="res://EvolutionTreeChildNode.gd" id="2_g6em4"]
+[ext_resource type="SpriteFrames" uid="uid://b0y7f22ku2ejk" path="res://Sprites/Normal/SpriteFramesNormalBaby.tres" id="4_vi2u6"]
+
+[sub_resource type="Resource" id="Resource_ku0hb"]
+script = ExtResource("2_g6em4")
+childNode = ExtResource("1_qc3b1")
+threshold = 0.0
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 name = "Normal Baby"
 stage = 1
-sprites = ExtResource( 3 )
-lifetimeInHours = 3
+sprite = ExtResource("4_vi2u6")
+lifetimeInHours = 0
 lifetimeInMinutes = 0
-lifetimeInSeconds = 0
-childNodes = [  ]
+lifetimeInSeconds = 10
+childNodes = [SubResource("Resource_ku0hb")]

@@ -1,23 +1,18 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://ls014xqjq7d5"]
 
-[ext_resource path="res://Pet.gd" type="Script" id=1]
-[ext_resource path="res://NormalLine.png" type="Texture" id=2]
+[ext_resource type="Script" path="res://Pet.gd" id="1"]
+[ext_resource type="SpriteFrames" uid="uid://b3tbua4fatn60" path="res://Sprites/SpriteFramesQuestionMark.tres" id="2_cu32g"]
 
-[node name="Pet" type="Node2D" groups=[
-"Persist",
-]]
-position = Vector2( 64, 32 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Pet" type="Node2D" groups=["Persist"]]
+position = Vector2(64, 32)
+script = ExtResource("1")
 
-[node name="PetSprite" type="Sprite" parent="."]
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 2 )
-hframes = 3
+[node name="PetSprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = ExtResource("2_cu32g")
+autoplay = "default"
 
 [node name="Timer" type="Timer" parent="."]
-process_mode = 0
 one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

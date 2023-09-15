@@ -1,4 +1,4 @@
-tool
+@tool
 extends EditorPlugin
 var dock
 var fontpath
@@ -10,10 +10,10 @@ var bmsize : Vector2
 var output
 
 func _enter_tree():
-	dock = preload("res://addons/BitmapFontMaker/main.tscn").instance()
+	dock = preload("res://addons/BitmapFontMaker/main.tscn").instantiate()
 	add_control_to_dock(DOCK_SLOT_LEFT_UL, dock)
-	dock.get_node("Input").connect("text_changed",self,"counter")
-	dock.get_node("Button").connect("button_down",self,"initfont")
+	dock.get_node("Input").connect("text_changed", Callable(self, "counter"))
+	dock.get_node("Button").connect("button_down", Callable(self, "initfont"))
 
 func counter():
 	var count : int
@@ -27,15 +27,15 @@ func initfont():
 	chsize = Vector2(dock.get_node("Dimensions/Width").value, dock.get_node("Dimensions/Height").value)
 	if File.new().file_exists(texturepath):
 		texture = load(texturepath)
-		if texture.get_class() != "StreamTexture":
+		if texture.get_class() != "CompressedTexture2D":
 			dock.get_node("Output").text = "Wrong filetype \n" + texturepath
 		else:
-			dock.get_node("Output").text = "Texture path valid"
+			dock.get_node("Output").text = "Texture2D path valid"
 			bmsize = Vector2(int(texture.get_size().x / chsize.x), int(texture.get_size().y / chsize.y))
 			if input == "":
 				dock.get_node("Output").text = "Characters field cannot be empty!"
 			else:
-				dock.get_node("Output").text = "Texture size: " + String(bmsize) + " characters"
+				dock.get_node("Output").text = "Texture2D size: " + String(bmsize) + " characters"
 				call("makefont")
 	else:
 		dock.get_node("Output").text = "Invalid texture path \n" + texturepath
@@ -44,7 +44,7 @@ func makefont():
 	var list = ""
 	var region : Rect2
 	var unicode
-	var btmfont = BitmapFont.new()
+	var btmfont = FontFile.new()
 	var count : int
 	btmfont.add_texture(texture)
 	for ch in input:

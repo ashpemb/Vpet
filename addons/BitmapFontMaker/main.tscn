@@ -1,37 +1,37 @@
 [gd_scene format=2]
 
 [node name="BitmapFontTool" type="VBoxContainer"]
-margin_right = 150.0
-margin_bottom = 235.0
+offset_right = 150.0
+offset_bottom = 235.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Fontpath" type="LineEdit" parent="."]
-margin_right = 152.0
-margin_bottom = 24.0
-hint_tooltip = "Path, where you want your font to be created.
+offset_right = 152.0
+offset_bottom = 24.0
+tooltip_text = "Path3D, where you want your font to be created.
 Must include file name and extension .tres."
 text = "res://new_font.tres"
 align = 1
-placeholder_text = "Path to new font (.tres)"
+placeholder_text = "Path3D to new font (.tres)"
 
 [node name="Texturepath" type="LineEdit" parent="."]
-margin_top = 28.0
-margin_right = 152.0
-margin_bottom = 52.0
-hint_tooltip = "Path to texture.
+offset_top = 28.0
+offset_right = 152.0
+offset_bottom = 52.0
+tooltip_text = "Path3D to texture.
 Must be in res://.
 Can be PNG, JPEG, etc."
 align = 1
-placeholder_text = "Path to font texture"
+placeholder_text = "Path3D to font texture"
 
 [node name="Input" type="TextEdit" parent="."]
-margin_top = 56.0
-margin_right = 152.0
-margin_bottom = 156.0
-rect_min_size = Vector2( 100, 100 )
-hint_tooltip = "Type characters in your bitmap font here, in right order.
+offset_top = 56.0
+offset_right = 152.0
+offset_bottom = 156.0
+custom_minimum_size = Vector2( 100, 100 )
+tooltip_text = "Type characters in your bitmap font here, in right order.
 Spaces and special characters are counted too."
 size_flags_vertical = 3
 draw_tabs = true
@@ -39,14 +39,14 @@ draw_spaces = true
 wrap_enabled = true
 
 [node name="Dimensions" type="HBoxContainer" parent="."]
-margin_top = 160.0
-margin_right = 152.0
-margin_bottom = 184.0
+offset_top = 160.0
+offset_right = 152.0
+offset_bottom = 184.0
 
 [node name="Width" type="SpinBox" parent="Dimensions"]
-margin_right = 74.0
-margin_bottom = 24.0
-hint_tooltip = "Character width in pixels."
+offset_right = 74.0
+offset_bottom = 24.0
+tooltip_text = "Character width in pixels."
 size_flags_horizontal = 3
 min_value = 1.0
 max_value = 1000.0
@@ -56,10 +56,10 @@ prefix = "W:"
 suffix = "px"
 
 [node name="Height" type="SpinBox" parent="Dimensions"]
-margin_left = 78.0
-margin_right = 152.0
-margin_bottom = 24.0
-hint_tooltip = "Character height in pixels."
+offset_left = 78.0
+offset_right = 152.0
+offset_bottom = 24.0
+tooltip_text = "Character height in pixels."
 size_flags_horizontal = 3
 min_value = 1.0
 max_value = 1000.0
@@ -69,19 +69,19 @@ prefix = "H:"
 suffix = "px"
 
 [node name="Button" type="Button" parent="."]
-margin_top = 188.0
-margin_right = 152.0
-margin_bottom = 208.0
-hint_tooltip = "Make bitmap font"
+offset_top = 188.0
+offset_right = 152.0
+offset_bottom = 208.0
+tooltip_text = "Make bitmap font"
 text = "Make font"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Output" type="Label" parent="."]
-margin_top = 212.0
-margin_right = 152.0
-margin_bottom = 235.0
+offset_top = 212.0
+offset_right = 152.0
+offset_bottom = 235.0
 size_flags_vertical = 3
 text = "This plugin will create bitmap font from texture."
 align = 1
