@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ls014xqjq7d5"]
 
-[ext_resource type="Script" path="res://Pet.gd" id="1"]
-[ext_resource type="SpriteFrames" uid="uid://b3tbua4fatn60" path="res://Sprites/SpriteFramesQuestionMark.tres" id="2_cu32g"]
+[ext_resource type="Script" path="res://Scripts/Pet.gd" id="1"]
+[ext_resource type="SpriteFrames" uid="uid://b3tbua4fatn60" path="res://Sprites/Generic/SpriteFramesQuestionMark.tres" id="2_ctd1c"]
 
 [node name="Pet" type="Node2D" groups=["Persist"]]
 position = Vector2(64, 32)
@@ -9,7 +9,7 @@ script = ExtResource("1")
 
 [node name="PetSprite" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-sprite_frames = ExtResource("2_cu32g")
+sprite_frames = ExtResource("2_ctd1c")
 autoplay = "default"
 
 [node name="Timer" type="Timer" parent="."]

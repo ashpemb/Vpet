@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://csixq215ux8y3"]
+
+[ext_resource type="PackedScene" uid="uid://ls014xqjq7d5" path="res://Scenes/Pet.tscn" id="1"]
+[ext_resource type="Script" path="res://Scripts/DebugCommands.gd" id="2_v02nh"]
+[ext_resource type="PackedScene" uid="uid://cc7v8ta7201eq" path="res://Scenes/UI_Scene.tscn" id="4_3vxi4"]
+[ext_resource type="Script" path="res://Scripts/SaveSystem.gd" id="4_blgcj"]
+[ext_resource type="SpriteFrames" uid="uid://b5iftmjy3fv8j" path="res://Sprites/Generic/SpriteFramesMeat.tres" id="5_e3k8q"]
+[ext_resource type="Script" path="res://Scripts/MeatSprite.gd" id="6_pv8ua"]
+
+[node name="Main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI_Scene" parent="CanvasLayer" instance=ExtResource("4_3vxi4")]
+
+[node name="DebugCommands" type="Node2D" parent="."]
+script = ExtResource("2_v02nh")
+DebugEnabled = true
+
+[node name="Pet" parent="DebugCommands" instance=ExtResource("1")]
+position = Vector2(64, 64)
+baseDecay = 0.1
+decayInterval = 5.0
+
+[node name="SaveSystem" type="Node2D" parent="DebugCommands"]
+script = ExtResource("4_blgcj")
+
+[node name="MeatSprite" type="AnimatedSprite2D" parent="DebugCommands"]
+visible = false
+texture_filter = 1
+position = Vector2(80, 64)
+sprite_frames = ExtResource("5_e3k8q")
+animation = &"eat"
+script = ExtResource("6_pv8ua")
+
+[connection signal="FeedPetSignal" from="CanvasLayer/UI_Scene" to="DebugCommands/Pet" method="_on_ui_scene_feed_pet_signal"]
+[connection signal="FeedPetSignal" from="CanvasLayer/UI_Scene" to="DebugCommands/MeatSprite" method="_on_ui_scene_feed_pet_signal"]
+[connection signal="updateStats" from="DebugCommands/Pet" to="CanvasLayer/UI_Scene" method="_on_pet_update_stats"]
+[connection signal="animation_finished" from="DebugCommands/MeatSprite" to="DebugCommands/MeatSprite" method="_on_animation_finished"]

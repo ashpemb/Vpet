@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="EvolutionTreeNode" load_steps=6 format=3 uid="uid://cdqd4derhsqme"]
 
-[ext_resource type="Script" path="res://EvolutionTreeNode.gd" id="1"]
+[ext_resource type="Script" path="res://Scripts/EvolutionTreeNode.gd" id="1"]
 [ext_resource type="Resource" uid="uid://dwfvbf8vu63uq" path="res://EvolutionTrees/Normal/NormalChild.tres" id="1_qc3b1"]
-[ext_resource type="Script" path="res://EvolutionTreeChildNode.gd" id="2_g6em4"]
+[ext_resource type="Script" path="res://Scripts/EvolutionTreeChildNode.gd" id="2_g6em4"]
 [ext_resource type="SpriteFrames" uid="uid://b0y7f22ku2ejk" path="res://Sprites/Normal/SpriteFramesNormalBaby.tres" id="4_vi2u6"]
 
 [sub_resource type="Resource" id="Resource_ku0hb"]

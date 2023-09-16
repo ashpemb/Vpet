@@ -85,6 +85,7 @@ func UpdateLifeStage():
 func FeedPet(InAmount : float):
 	if InAmount > 0:
 		SetHunger(hunger + InAmount)
+		updateStats.emit(hunger, attention, activity)
 		
 func DEBUG_ForceUpdateLifeStage():
 	var nextNode : EvolutionTreeNode
@@ -110,3 +111,6 @@ func Save():
 		"currentNode" : currentEvolutionNode.resource_path
 	}
 	return save_data
+
+func _on_ui_scene_feed_pet_signal(amount):
+	FeedPet(amount)

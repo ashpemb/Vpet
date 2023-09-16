@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdbh74t6oiiac"
-path="res://.godot/imported/QuestionMark.png-cd84b51dab537230b620c5c63139ad5c.ctex"
+uid="uid://cqah6o3oimd47"
+path="res://.godot/imported/Meat3.png-fd2b2c803064eb6b370a749cf907b2ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/QuestionMark.png"
-dest_files=["res://.godot/imported/QuestionMark.png-cd84b51dab537230b620c5c63139ad5c.ctex"]
+source_file="res://Sprites/Generic/Meat3.png"
+dest_files=["res://.godot/imported/Meat3.png-fd2b2c803064eb6b370a749cf907b2ea.ctex"]
 
 [params]
 

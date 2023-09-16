@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc7v8ta7201eq"]
+[gd_scene load_steps=7 format=3 uid="uid://cc7v8ta7201eq"]
 
-[ext_resource type="Script" path="res://UI_Scene.gd" id="1_0eysb"]
+[ext_resource type="Script" path="res://Scripts/UI_Scene.gd" id="1_0eysb"]
 [ext_resource type="FontFile" uid="uid://b0mn5tcftp77e" path="res://Font/m5x7.ttf" id="1_70xms"]
-[ext_resource type="Script" path="res://Clock.gd" id="1_mobms"]
+[ext_resource type="Script" path="res://Scripts/Clock.gd" id="1_mobms"]
+[ext_resource type="Texture2D" uid="uid://jeuxtw6deq2f" path="res://Sprites/Generic/Meat1.png" id="4_i8i5s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hj4ka"]
 font = ExtResource("1_70xms")
@@ -40,3 +41,13 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 label_settings = SubResource("LabelSettings_8k8pv")
+
+[node name="Feed" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 103.0
+offset_right = 25.0
+offset_bottom = 127.0
+icon = ExtResource("4_i8i5s")
+
+[connection signal="pressed" from="Feed" to="." method="_on_feed_button_pressed"]

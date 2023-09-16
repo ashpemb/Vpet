@@ -1,14 +1,18 @@
-[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://b0y7f22ku2ejk"]
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://b0y7f22ku2ejk"]
 
 [ext_resource type="Texture2D" uid="uid://dyvd7qb564bvs" path="res://Sprites/Normal/NormalBaby.png" id="1_uq1mm"]
+[ext_resource type="Texture2D" uid="uid://ca5mhdnkutmxi" path="res://Sprites/Normal/NormalBabyIdle2.png" id="2_flfy2"]
 
 [resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_uq1mm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_flfy2")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"idle",
+"speed": 2.0
 }]
