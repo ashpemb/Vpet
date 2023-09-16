@@ -18,4 +18,7 @@ sprite = ExtResource("4_tx6d6")
 lifetimeInHours = 0
 lifetimeInMinutes = 0
 lifetimeInSeconds = 10
+hungerModifier = 1.0
+attentionModifier = 1.0
+activityModifier = 1.0
 childNodes = [SubResource("Resource_tokqf")]

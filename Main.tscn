@@ -7,13 +7,20 @@
 
 [node name="Main" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI_Scene" parent="CanvasLayer" instance=ExtResource("4_3vxi4")]
+
 [node name="DebugCommands" type="Node2D" parent="."]
 script = ExtResource("3")
 DebugEnabled = true
 
 [node name="Pet" parent="DebugCommands" instance=ExtResource("1")]
+position = Vector2(64, 64)
+baseDecay = 0.1
+decayInterval = 5.0
 
 [node name="SaveSystem" type="Node2D" parent="DebugCommands"]
 script = ExtResource("2")
 
-[node name="UI_Scene" parent="." instance=ExtResource("4_3vxi4")]
+[connection signal="updateStats" from="DebugCommands/Pet" to="CanvasLayer/UI_Scene" method="_on_pet_update_stats"]

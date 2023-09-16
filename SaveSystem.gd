@@ -61,4 +61,4 @@ func delete_save():
 	if not FileAccess.file_exists("user://savegame.save"):
 		return # Error! We don't have a save to load.
 		
-	var dir = DirAccess.remove_absolute("user://savegame.save")
+	DirAccess.remove_absolute("user://savegame.save")
