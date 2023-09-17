@@ -52,9 +52,10 @@ func load_game():
 		# Now we set the remaining variables.
 		for i in node_data.keys():
 			if i == "currentNode":
-				PetNode.set("currentEvolutionNode", load(node_data["currentNode"]))
-				PetNode.SetNewTreeNode(PetNode.currentEvolutionNode)
-				continue
+				if node_data["currentNode"] != null:
+					PetNode.set("currentEvolutionNode", load(node_data["currentNode"]))
+					PetNode.SetNewTreeNode(PetNode.currentEvolutionNode)
+					continue
 			PetNode.set(i, node_data[i])
 			
 func delete_save():

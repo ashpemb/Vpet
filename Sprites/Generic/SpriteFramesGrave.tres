@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://cvmxgyssrio6d"]
+
+[ext_resource type="Texture2D" uid="uid://ciaf3ywdcre2x" path="res://Sprites/Generic/Grave.png" id="1_cjy1b"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cjy1b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

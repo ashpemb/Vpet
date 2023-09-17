@@ -5,10 +5,10 @@
 [ext_resource type="Script" path="res://Scripts/Clock.gd" id="1_mobms"]
 [ext_resource type="Texture2D" uid="uid://jeuxtw6deq2f" path="res://Sprites/Generic/Meat1.png" id="4_i8i5s"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_hj4ka"]
+[sub_resource type="LabelSettings" id="LabelSettings_8k8pv"]
 font = ExtResource("1_70xms")
 
-[sub_resource type="LabelSettings" id="LabelSettings_8k8pv"]
+[sub_resource type="LabelSettings" id="LabelSettings_hj4ka"]
 font = ExtResource("1_70xms")
 
 [node name="UI_Scene" type="Control"]
@@ -22,32 +22,35 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0eysb")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = 88.0
-offset_top = -2.0
-offset_right = 128.0
-offset_bottom = 14.0
-grow_horizontal = 0
-text = "00:00:00"
-label_settings = SubResource("LabelSettings_hj4ka")
-script = ExtResource("1_mobms")
-
-[node name="Stats" type="Label" parent="."]
-layout_mode = 0
+[node name="MainUI" type="Control" parent="."]
+anchors_preset = 0
 offset_right = 40.0
-offset_bottom = 23.0
-label_settings = SubResource("LabelSettings_8k8pv")
+offset_bottom = 40.0
 
-[node name="Feed" type="Button" parent="."]
-layout_mode = 0
+[node name="Feed" type="Button" parent="MainUI"]
 offset_left = 1.0
 offset_top = 103.0
 offset_right = 25.0
 offset_bottom = 127.0
 icon = ExtResource("4_i8i5s")
 
-[connection signal="pressed" from="Feed" to="." method="_on_feed_button_pressed"]
+[node name="Stats" type="Label" parent="MainUI"]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_8k8pv")
+
+[node name="Clock" type="Label" parent="MainUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 48.0
+offset_top = -2.0
+offset_right = 88.0
+offset_bottom = 14.0
+grow_horizontal = 0
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_hj4ka")
+script = ExtResource("1_mobms")
+
+[connection signal="pressed" from="MainUI/Feed" to="." method="_on_feed_button_pressed"]

@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var petSprite : AnimatedSprite2D = $PetSprite
 @onready var lifeTime : Timer = $Timer
+@onready var graveSprite : SpriteFrames = preload("res://Sprites/Generic/SpriteFramesGrave.tres")
 
 var currentEvolutionNode : EvolutionTreeNode
 var currentStage : int = EvolutionStages.Stages.NONE
@@ -17,6 +18,9 @@ var curTime : float
 var nextDecayTick : float
 var isDecaying : bool = false
 signal updateStats(hunger, attention, activity)
+
+signal EnableFeed
+signal PetDied
 
 func SetHunger(InValue):
 	hunger = InValue
@@ -36,15 +40,14 @@ func _process(_delta):
 		if curTime >= nextDecayTick:
 			DecayStats()
 			ResetDecayInterval()
-	
-	if currentEvolutionNode == null && Input.is_action_pressed("ui_1"):
-		SetNewTreeNode(load("res://EvolutionTrees/Normal/NormalEgg.tres"))
 
 func DecayStats():
 	SetHunger(hunger - (baseDecay * currentEvolutionNode.hungerModifier))
 	SetAttention(attention - (baseDecay * currentEvolutionNode.attentionModifier))
 	SetActivity(activity - (baseDecay * currentEvolutionNode.activityModifier))
 	updateStats.emit(hunger, attention, activity)
+	if hunger <= 0:
+		KillPet()
 	
 func ResetDecayInterval():
 	nextDecayTick = curTime + decayInterval
@@ -64,10 +67,12 @@ func SetNewTreeNode(newTreeNode : EvolutionTreeNode):
 		lifeTime.start(newLifeTime)
 		ResetStats()
 		updateStats.emit(hunger, attention, activity)
-		ResetDecayInterval()
-		isDecaying = true
+		if currentStage > EvolutionStages.Stages.EGG:
+			EnableFeed.emit()
+			ResetDecayInterval()
+			isDecaying = true
 	else:
-		print("New node is null, this shouldn't happen")
+		printerr("New node is null, this shouldn't happen")
 	
 
 func UpdateLifeStage():
@@ -81,7 +86,16 @@ func UpdateLifeStage():
 	
 	if nextNode != null:
 		SetNewTreeNode(nextNode)
+	else:
+		KillPet()
 		
+func KillPet():
+	petSprite.sprite_frames = graveSprite
+	currentStage = -1
+	currentEvolutionNode = null
+	isDecaying = false
+	PetDied.emit()
+
 func FeedPet(InAmount : float):
 	if InAmount > 0:
 		SetHunger(hunger + InAmount)
@@ -95,22 +109,37 @@ func DEBUG_ForceUpdateLifeStage():
 	
 	if nextNode != null:
 		SetNewTreeNode(nextNode)
+	else:
+		KillPet()
 
 func _on_Timer_timeout():
 	UpdateLifeStage()
 
 func Save():
-	var save_data = {
-		"filename" : get_path(),
-		"hunger" : hunger,
-		"attention" : attention,
-		"activity" : activity,
-		"happiness" : happiness,
-		"currentStage" : currentStage,
-		"remainingLifeTime" : lifeTime.time_left,
-		"currentNode" : currentEvolutionNode.resource_path
-	}
-	return save_data
+	if currentEvolutionNode != null:
+		var save_data = {
+			"filename" : get_path(),
+			"hunger" : hunger,
+			"attention" : attention,
+			"activity" : activity,
+			"happiness" : happiness,
+			"currentStage" : currentStage,
+			"remainingLifeTime" : lifeTime.time_left,
+			"currentNode" : currentEvolutionNode.resource_path
+		}
+		return save_data
+	else:
+		var save_data = {
+			"filename" : get_path(),
+			"hunger" : hunger,
+			"attention" : attention,
+			"activity" : activity,
+			"happiness" : happiness,
+			"currentStage" : currentStage,
+			"remainingLifeTime" : 0,
+			"currentNode" : null
+		}
+		return save_data
 
 func _on_ui_scene_feed_pet_signal(amount):
 	FeedPet(amount)
